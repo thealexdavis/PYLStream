@@ -190,6 +190,10 @@ body{
 					height: 50px;
 					&.smaller{
 						width: 12.5%;
+						&.active{
+							background-color: green;
+							color: white;
+						}
 					}
 				}
 				input[type="text"]{

@@ -2783,38 +2783,62 @@ function aud_fade(sfxPlayer,currentPlaying){
 socket.on("triggerBgAnim",function(data){
 	runBoardAnim(data);
 });
+currentRunningAnim = 0;
 function runBoardAnim(data){
-	redBoard.className = "";
-	blueBoard.className = "";
-	goldBoard.className = "";
-	if(data==1){
-		goldBoard.classList.add("show");
-		goldBoard.classList.add("vertblackout");
+	if(currentRunningAnim == data){
+		if(data!==8){
+			redBoard.className = "";
+			blueBoard.className = "";
+			goldBoard.className = "";
+		} else {
+			clearInterval(animStarfield);
+			context.clearRect(0, 0, width, height);
+		}
+		currentRunningAnim = 0;
+	} else {
+		if(data!==8){
+			redBoard.className = "";
+			blueBoard.className = "";
+			goldBoard.className = "";
+		}
+		if(data==0){
+			clearInterval(animStarfield);
+			context.clearRect(0, 0, width, height);
+		}
+		if(data==1){
+			goldBoard.classList.add("show");
+			goldBoard.classList.add("vertblackout");
+		}
+		if(data==2){
+			goldBoard.classList.add("show");
+			goldBoard.classList.add("vertblink");
+		}
+		if(data==3){
+			goldBoard.classList.add("show");
+			goldBoard.classList.add("horblackout");
+		}
+		if(data==4){
+			goldBoard.classList.add("show");
+			goldBoard.classList.add("horblink");
+		}
+		if(data==5){
+			goldBoard.classList.add("show");
+			goldBoard.classList.add("diagonalblinkreverse");
+		}
+		if(data==6){
+			goldBoard.classList.add("show");
+			goldBoard.classList.add("diagonalblink");
+		}
+		if(data==7){
+			blueBoard.classList.add("show");
+			blueBoard.classList.add("blueblink");
+		}
+		if(data==8){
+			animStarfield = setInterval(tick, Math.floor(1000 / framerate));
+		}
+		currentRunningAnim = data;
 	}
-	if(data==2){
-		goldBoard.classList.add("show");
-		goldBoard.classList.add("vertblink");
-	}
-	if(data==3){
-		goldBoard.classList.add("show");
-		goldBoard.classList.add("horblackout");
-	}
-	if(data==4){
-		goldBoard.classList.add("show");
-		goldBoard.classList.add("horblink");
-	}
-	if(data==5){
-		goldBoard.classList.add("show");
-		goldBoard.classList.add("diagonalblinkreverse");
-	}
-	if(data==6){
-		goldBoard.classList.add("show");
-		goldBoard.classList.add("diagonalblink");
-	}
-	if(data==7){
-		blueBoard.classList.add("show");
-		blueBoard.classList.add("blueblink");
-	}
+	
 }
 
 //BOARD STARFIELD ANIM

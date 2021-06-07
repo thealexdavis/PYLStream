@@ -348,7 +348,7 @@ function startRound(num){
 	 		champKey = document.getElementsByName("player3key")[0].value;
 	 		champNumber = 3;
  		}
- 		socket.emit('start round', 3);
+ 		socket.emit('start round', 4);
  		document.getElementsByName("champ1name")[0].value = champName;
  		document.getElementsByName("champPlayerNumber")[0].value = champNumber;
  		document.getElementsByName("champKey")[0].value = champKey;
@@ -493,8 +493,10 @@ socket.on('sendSquareInfo',function(squareInfo) {
 			}
 		} else {
 			playerScoreNew = parseInt(document.getElementsByName(playerNumberFull+"score")[0].value) + squareValue;
-			jackpotVal = parseInt(document.getElementsByName("jackpotval")[0].value) + squareValue;
-			document.getElementsByName("jackpotval")[0].value = jackpotVal;
+			if(roundNum<3){
+				jackpotVal = parseInt(document.getElementsByName("jackpotval")[0].value) + squareValue;
+				document.getElementsByName("jackpotval")[0].value = jackpotVal;
+			}
 		}
 		document.getElementsByName(playerNumberFull+"score")[0].value = playerScoreNew;
 		if (squareExtras !== "plus"){
@@ -755,4 +757,9 @@ function storeQuestion(){
 	questionList[currentQNum]['answers'] = theAnswers;
 	clearAll(1);
 	document.getElementById("loadq"+currentQNum).className = "questionload";
+}
+//TOGGLE BTN CLASS
+function toggleClass(idName) {
+  var element = document.getElementById(idName);
+  element.classList.toggle("active");
 }

@@ -206,14 +206,15 @@
 				<button id="blinkend" onclick="toggleBoardBlink(0)">BLINK END</button>
 				<button id="blackout" onclick="blackout()">BLACKOUT</button>
 				<button id="showopen" onclick="showOpen()">OPEN</button>
-				<button id="showopen" class="smaller" onclick="boardAnim(1)">VERT BLACKOUT</button>
-				<button id="showopen" class="smaller" onclick="boardAnim(2)">VERT FADE</button>
-				<button id="showopen" class="smaller" onclick="boardAnim(3)">HOR BLACKOUT</button>
-				<button id="showopen" class="smaller" onclick="boardAnim(4)">HOR FADE</button>
-				<button id="showopen" class="smaller" onclick="boardAnim(5)">ARROW IN</button>
-				<button id="showopen" class="smaller" onclick="boardAnim(6)">ARROW OUT</button>
-				<button id="showopen" class="smaller" onclick="boardAnim(7)">BLUE FADE</button>
-				<button id="showopen" class="smaller" onclick="boardAnim(0)">STOP ANIM</button>
+				<button id="animbtn1" class="smaller" onclick="boardAnim(1);toggleClass('animbtn1');">VERT BLACKOUT</button>
+				<button id="animbtn2" class="smaller" onclick="boardAnim(2);toggleClass('animbtn2');">VERT FADE</button>
+				<button id="animbtn3" class="smaller" onclick="boardAnim(3);toggleClass('animbtn3');">HOR BLACKOUT</button>
+				<button id="animbtn4" class="smaller" onclick="boardAnim(4);toggleClass('animbtn4');">HOR FADE</button>
+				<button id="animbtn5" class="smaller" onclick="boardAnim(5);toggleClass('animbtn5');">ARROW IN</button>
+				<button id="animbtn6" class="smaller" onclick="boardAnim(6);toggleClass('animbtn6');">ARROW OUT</button>
+				<button id="animbtn7" class="smaller" onclick="boardAnim(7);toggleClass('animbtn7');">BLUE FADE</button>
+				<button id="animbtn8" class="smaller" onclick="boardAnim(8);toggleClass('animbtn8');">STAR FIELD</button>
+				<button id="animbtn0" class="smaller" onclick="boardAnim(0);toggleClass('animbtn0');">STOP ANIM</button>
 				<button id="showopen" class="smaller" onclick="sfx(1)">PLAY THEME</button>
 				<button id="showopen" class="smaller" onclick="sfx(2)">PLAY LOOP</button>
 				<button id="showopen" class="smaller" onclick="sfx(3)">PLAY STING</button>
